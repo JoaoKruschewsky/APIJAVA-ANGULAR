@@ -21,16 +21,6 @@ Este projeto consiste em uma aplicação que utiliza Java para a construção da
 
 Atualmente, estou nos estágios iniciais do aprendizado, explorando funcionalidades básicas e construindo a base do projeto. Conforme prossigo, planejo implementar mais funcionalidades e melhorar a estrutura do código.
 
-## Como Contribuir
-
-Se você tiver alguma sugestão, correção ou gostaria de contribuir para o desenvolvimento deste projeto, sinta-se à vontade para fazer um fork e enviar suas pull requests. Feedbacks são sempre bem-vindos!
-
-## Contato
-
-Caso queira entrar em contato comigo para discutir o projeto ou trocar ideias sobre o desenvolvimento em Java e Angular, sinta-se à vontade para me enviar uma mensagem.
-
-Obrigado por visitar o meu repositório e acompanhar o meu progresso nesta jornada de aprendizado!
-
 ## Redes Sociais
 
 - [Twitter](https://twitter.com/kubichequi)
