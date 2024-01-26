@@ -13,6 +13,8 @@ public interface Repositorio extends CrudRepository<Loja, Integer> {
 
     Loja findById(int id);
 
+    int countById(int id);
+
     Loja findByNameproduct(String name);
 
     List<Loja> findAll();

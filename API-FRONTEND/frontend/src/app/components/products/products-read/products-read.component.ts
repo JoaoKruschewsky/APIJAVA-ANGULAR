@@ -15,7 +15,7 @@ export class ProductsReadComponent implements AfterViewInit{
 
   products: Product[] = []
  
-  displayedColumns = ['id', 'nameproduct','amount', 'value'];
+  displayedColumns = ['id', 'nameproduct','amount', 'value', 'action'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -27,11 +27,8 @@ export class ProductsReadComponent implements AfterViewInit{
         this.ProductService.paginator = this.paginator
           this.ProductService.sort = this.sort
         this.ProductService.Read().subscribe(products => {
-          this.products = products
           this.table.dataSource = products
           
-          
-          console.log(products)
          
         })
        

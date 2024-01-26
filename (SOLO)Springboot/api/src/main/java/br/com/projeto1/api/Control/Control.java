@@ -43,14 +43,16 @@ public class Control {
     }
 
     // Selecionar pelo id
-    @GetMapping("selecionarpeloid/{id}")
-    public ResponseEntity<?> selecionarpelocodigo(@PathVariable int id) {
-        return servico.selectbyid(id);
+    @GetMapping("selecionarpeloid")
+    @PostMapping
+    public Loja selecionarpelocodigo(@RequestBody int id) {
+        
+        return acao.findById(id);
     }
 
     // Selecionar pelo name
-    @GetMapping("selecionarpelonome/{name}")
-    public ResponseEntity<?> selectbyname(@PathVariable String name) {
+    @GetMapping("selecionarpelonome")
+    public ResponseEntity<?> selectbyname(@RequestBody String name) {
         return servico.selectbyname(name);
     }
     // Selecionar pelo name e update por ele
