@@ -30,7 +30,7 @@ const routes: Routes = [
   component:ProductsRead2Component
 },
 {
-  path:"products/uptade",
+  path:"products/uptade/:id",
   component:ProductsUptadeComponent
 }
 

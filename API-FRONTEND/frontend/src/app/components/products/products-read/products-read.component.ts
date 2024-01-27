@@ -24,9 +24,10 @@ export class ProductsReadComponent implements AfterViewInit{
 
     }
     ngAfterViewInit(): void {
+      this.products = this.products
+
       this.ProductService.paginator = this.paginator
       this.ProductService.sort = this.sort
-      this.products = this.products
         this.ProductService.Read().subscribe(products => {
           
           this.table.dataSource = products
