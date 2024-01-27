@@ -33,6 +33,7 @@ import { MatSortModule } from '@angular/material/sort';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { ProductsUptadeComponent } from './components/products/products-uptade/products-uptade.component';
 
 registerLocaleData(localePt)
 
@@ -49,6 +50,7 @@ registerLocaleData(localePt)
     ProductsCreateComponent,
     ProductsReadComponent,
     ProductsRead2Component,
+    ProductsUptadeComponent,
    
   ],
   imports: [

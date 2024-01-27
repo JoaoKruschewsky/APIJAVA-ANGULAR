@@ -30,6 +30,15 @@ export class ProductService {
   Create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product)
   }
+  readById(id: string): Observable<Product> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.get<Product>(this.baseUrl)
+  }
+  uptade(Product:Product ): Observable<Product> {
+    const url = `${this.baseUrl}/${Product.id}`
+
+    return this.http.put<Product>(url, Product)
+  }
  
   Read(): Observable<Product[]> {
     if (this.paginator && this.sort) {
@@ -71,11 +80,13 @@ export class ProductService {
       }
     });
   }
+  
 }
-
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
 function compare(a: string | number, b: string | number, isAsc: boolean): number {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+
+ 
 }
   
 

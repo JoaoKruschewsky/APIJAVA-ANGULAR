@@ -26,7 +26,7 @@ public class Servico {
 
     // selecionar pelo Id
     public ResponseEntity<?> selectbyid(int id) {
-        if (acao.findById(id) == null)_ {
+        if (acao.findById(id) == null){
             mensagem.setMensagem("Nao existe produto oom esse id");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
         } else {

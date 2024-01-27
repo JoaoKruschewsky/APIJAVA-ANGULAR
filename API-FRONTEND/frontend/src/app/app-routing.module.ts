@@ -6,6 +6,7 @@ import { ProductCrudComponent} from './views/product-crud/product-crud.component
 import { ProductsCreateComponent } from './components/products/products-create/products-create.component';
 import { ProductsReadComponent } from './components/products/products-read/products-read.component';
 import { ProductsRead2Component } from './components/products/products-read2/products-read2.component';
+import { ProductsUptadeComponent } from './components/products/products-uptade/products-uptade.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
 {
   path:"products/read2",
   component:ProductsRead2Component
+},
+{
+  path:"products/uptade",
+  component:ProductsUptadeComponent
 }
 
 
