@@ -1,4 +1,4 @@
-import {  ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ProductService } from '../../product/product.service';
 import { Product } from './../product.model';
 import { Component, OnInit } from '@angular/core';
@@ -10,25 +10,32 @@ import { Action } from 'rxjs/internal/scheduler/Action';
   styleUrl: './products-uptade.component.css'
 })
 export class ProductsUptadeComponent implements OnInit {
- 
- 
-  product: Product 
 
+
+  product: Product = {} as Product
   constructor(private productService: ProductService,
-              private router: Router,
-              private route: ActivatedRoute,
-             product: Product ) {}
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id !== null) {
-      this.productService.readById(id).subscribe(product => {
+    const id2 = id ? parseInt(id, 10) : 0; // Convertendo para número se não for nulo
+  
+    if (!isNaN(id2) && id2 !== 0) {
+    
+      this.productService.readById(id2).subscribe(product => {
+        console.log("olá")
         this.product = product;
+        
+        
       });
     } else {
-      console.error("ID da rota é nulo.");
+      console.error("ID da rota é inválido ou nulo.");
     }
   }
+
 
   updateProduct() {
     // Implemente a lógica de atualização do produto aqui

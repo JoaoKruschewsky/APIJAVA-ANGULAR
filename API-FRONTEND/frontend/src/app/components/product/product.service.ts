@@ -18,6 +18,7 @@ export class ProductService {
 
     baseUrl = "http://localhost:8080/lojas/cadastrar"
     ListarUrl = "http://localhost:8080/lojas/Listar"
+    ListarId = "http://localhost:8080/lojas/selecionarpeloid"
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
   showMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
@@ -30,12 +31,12 @@ export class ProductService {
   Create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product)
   }
-  readById(id: string): Observable<Product> {
-    const url = `${this.baseUrl}/${id}`
-    return this.http.get<Product>(this.baseUrl)
+  readById(id: number): Observable<Product> {
+    const url = `${this.ListarId}/${id}`
+    return this.http.get<Product>(this.ListarId)
   }
   uptade(Product:Product ): Observable<Product> {
-    const url = `${this.baseUrl}/${Product.id}`
+    const url = `${this.ListarId}/${Product.id}`
 
     return this.http.put<Product>(url, Product)
   }
