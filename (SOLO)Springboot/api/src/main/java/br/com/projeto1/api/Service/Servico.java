@@ -74,19 +74,19 @@ public class Servico {
 
     // Uptade pelo nome
 
-    public ResponseEntity<?> uptadebyname(int novaquantidade, String name) {
-        if (selectbyname(name) == null) {
+   /* public ResponseEntity<?> uptadebyname(int id) {
+        if (selectbyid(id) == null) {
             mensagem.setMensagem("Nao existe produto com esse nome");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
 
         } else {
 
-            acao.setaramout(novaquantidade, name);
+            acao.setaramout();
             mensagem.setMensagem(
                     "Produto " + name + "atualizado para quantidade de " + novaquantidade + "com sucesso.");
             return new ResponseEntity<>(mensagem, HttpStatus.OK);
 
         }
 
-    }
+    }*/ 
 }

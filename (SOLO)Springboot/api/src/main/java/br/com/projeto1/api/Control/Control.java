@@ -56,9 +56,9 @@ public class Control {
     // Selecionar pelo name e update por ele
 
     @Transactional
-    @PutMapping("atualizar/{name}/{novaquantidade}")
-    public ResponseEntity<?> updatebyname(@PathVariable int novaquantidade, @PathVariable String name) {
-        return servico.uptadebyname(novaquantidade, name);
+    @PutMapping("atualizar/{id}")
+    public void  updatebyname(@PathVariable int id, @RequestBody Loja produto) {
+         acao.updateAnyPartOfProduct(produto, id);
 
     }
 
