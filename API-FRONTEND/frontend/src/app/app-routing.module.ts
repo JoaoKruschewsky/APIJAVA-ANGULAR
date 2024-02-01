@@ -7,6 +7,7 @@ import { ProductsCreateComponent } from './components/products/products-create/p
 import { ProductsReadComponent } from './components/products/products-read/products-read.component';
 import { ProductsRead2Component } from './components/products/products-read2/products-read2.component';
 import { ProductsUptadeComponent } from './components/products/products-uptade/products-uptade.component';
+import { ProductsDeleteComponent } from './components/products/products-delete/products-delete.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
 {
   path:"products/uptade/:id",
   component:ProductsUptadeComponent
+},
+{
+  path: "products/delete/:id",
+  component:ProductsDeleteComponent
 }
 
 

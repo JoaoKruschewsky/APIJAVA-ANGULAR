@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Loja {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nameproduct;
     private String amount;

@@ -13,6 +13,8 @@ import br.com.projeto1.api.Models.Loja;
 public interface Repositorio extends CrudRepository<Loja, Integer> {
 
     Loja findById(int id);
+    @Query("SELECT l FROM Loja l ORDER BY l.id ASC")
+    List<Loja> findAllOrderedById();
 
     int countById(int id);
 
@@ -21,9 +23,9 @@ public interface Repositorio extends CrudRepository<Loja, Integer> {
     List<Loja> findAll();
 
     @Modifying
-    @Query(value = "UPDATE ListLoja SET " +
+    @Query(value = "UPDATE Listloja SET " +
             "amount = COALESCE(:#{#Listloja.amount}, amount), " +
-            "value = CASE WHEN :#{#Listloja.value} IS NULL THEN value ELSE :#{#Listloja.value} END, " +
+            "value = COALESCE(:#{#Listloja.value}, value), " +
             "nameproduct = COALESCE(:#{#Listloja.nameproduct}, nameproduct) " +
             "WHERE id = :id", nativeQuery = true)
     void updateAnyPartOfProduct(@Param("Listloja") Loja produto, @Param("id") Integer id);

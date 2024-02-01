@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+
+
 
 import java.util.*;
 
@@ -23,6 +28,8 @@ import jakarta.transaction.Transactional;
 @CrossOrigin(origins = "*")
 @RequestMapping("/lojas") 
 public class Control {
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
     private Repositorio acao;
@@ -40,6 +47,8 @@ public class Control {
     @GetMapping("Listar")
     public List<Loja> listartodos() {
         return acao.findAll();
+        
+
     }
 
     // Selecionar pelo id
@@ -60,6 +69,9 @@ public class Control {
     public void  updatebyname(@PathVariable int id, @RequestBody Loja produto) {
          acao.updateAnyPartOfProduct(produto, id);
 
+         reorderIds();
+         
+
     }
 
     // Deletarbyname
@@ -75,6 +87,20 @@ public class Control {
     @DeleteMapping("deletarpeloid/{id}")
     public ResponseEntity<?> deletebyid(@PathVariable int id) {
         return servico.deletebyid(id);
+    }
+
+    // Reoganizar os id 
+    @Transactional
+    public void reorderIds() {
+        // Recupera todos os registros da tabela e ordena-os por ID
+        List<Loja> lojas = acao.findAllOrderedById();
+
+        // Atualiza os IDs para formar uma sequência contínua
+        for (int i = 0; i < lojas.size(); i++) {
+            Loja loja = lojas.get(i);
+            loja.setId(i + 1);
+            entityManager.merge(loja); // Mescla o objeto com o contexto de persistência
+        }
     }
 
 }

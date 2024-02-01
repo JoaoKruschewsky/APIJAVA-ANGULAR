@@ -23,18 +23,26 @@ export class ProductsReadComponent implements AfterViewInit{
     constructor(private ProductService:ProductService) {
 
     }
+ 
     ngAfterViewInit(): void {
-      this.products = this.products
       this.ProductService.paginator = this.paginator
       this.ProductService.sort = this.sort
-        this.ProductService.Read().subscribe(products => {
-          
-          this.table.dataSource = products
-          
-         
-        })
-       
+      this.ProductService.Read().subscribe(products => {
+     
+        this.table.dataSource = products
+        
+  
+      })
+      
+    
     } 
-   
+   RefreshTable(): void {
+    this.ProductService.Read().subscribe(products => {
+     
+      this.table.dataSource = products
+      
+
+    })
+   }
  
   }

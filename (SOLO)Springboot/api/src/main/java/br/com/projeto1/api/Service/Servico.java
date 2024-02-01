@@ -1,5 +1,7 @@
 package br.com.projeto1.api.Service;
 
+import java.util.List;
+
 import javax.management.RuntimeErrorException;
 import javax.swing.JOptionPane;
 import javax.swing.Spring;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 import br.com.projeto1.api.Mensagem.Mensagem;
 import br.com.projeto1.api.Models.Loja;
 import br.com.projeto1.api.Repository.Repositorio;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -71,7 +74,7 @@ public class Servico {
 
         }
     }
-
+ 
     // Uptade pelo nome
 
    /* public ResponseEntity<?> uptadebyname(int id) {
