@@ -1,3 +1,5 @@
+import { Head } from 'rxjs';
+import { HeaderService } from './../../components/template/header/header.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  constructor(private HeaderService: HeaderService){
+    HeaderService.headerData = {
+      title: 'Inicio',
+      icon: 'home',
+      routeUrl: '/products'
+    }
+  }
 
 }
