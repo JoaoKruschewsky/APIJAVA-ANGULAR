@@ -16,7 +16,7 @@ public class Loja {
     private int id;
     private String nameproduct;
     private String amount;
-    private int value;
+    private String value;
 
     public int getId() {
         return id;
@@ -42,11 +42,11 @@ public class Loja {
         this.amount = amount;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(String value) {
         this.value = value;
     }
 }

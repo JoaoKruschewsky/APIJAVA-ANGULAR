@@ -8,8 +8,4 @@ export class ValidationService {
 
   constructor() { }
 
-  ValitionIfInputIsNull(input:Product) {
-    return input.value === 0 || input.nameproduct === '' || input.amount === '';
-
-  }
 }

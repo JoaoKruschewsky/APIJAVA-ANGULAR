@@ -3,6 +3,7 @@ package br.com.projeto1.api.Control;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,17 +21,20 @@ import br.com.projeto1.api.Service.Servicousuario;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/usuarios")
+@RequestMapping("/users")
 public class Controluser {
     @Autowired
     private Repositoriouser acao;
 
     @Autowired
     private Servicousuario servico;
+     @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
 
     @PostMapping("/cadastrarusuario")
     public Usuario cadastrar(@RequestBody Usuario obj) {
-        return acao.save(obj);
+        return servico.salvarUsuario(obj);
 
     }
 

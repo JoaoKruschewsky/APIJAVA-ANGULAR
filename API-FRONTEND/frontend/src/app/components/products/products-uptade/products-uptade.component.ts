@@ -26,7 +26,6 @@ export class ProductsUptadeComponent implements OnInit {
     if (!isNaN(id2) && id2 !== 0) {
 
       this.productService.readById(id2).subscribe(product => {
-        console.log("olá")
         this.product = product;
 
 

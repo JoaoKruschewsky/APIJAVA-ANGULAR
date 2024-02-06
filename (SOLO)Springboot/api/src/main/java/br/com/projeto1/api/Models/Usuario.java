@@ -1,5 +1,4 @@
 package br.com.projeto1.api.Models;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,9 +14,11 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
     @Email
     @NotEmpty
     private String email;
+    
     @Size(min = 8, message = "A senha deve conter pelo menos 8 letras")
     @NotEmpty
     private String senha;

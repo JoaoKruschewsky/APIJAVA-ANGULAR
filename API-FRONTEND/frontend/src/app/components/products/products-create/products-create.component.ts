@@ -1,9 +1,11 @@
+import { HeaderService } from './../../template/header/header.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ValidationService } from './../../product/validation.service';
 import { ProductService } from './../../product/product.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../product.model';
+import { Head } from 'rxjs';
 @Component({
   selector: 'app-products-create',
   templateUrl: './products-create.component.html',
@@ -14,15 +16,23 @@ export class ProductsCreateComponent implements OnInit {
   product: Product = {
     nameproduct:'',
     amount: '',
-    value: 0
+    value: ''
   }
 
 
   constructor(private productService: ProductService,
     private ValidationService: ValidationService,
     private root: Router,
-    private MatSnackBar: MatSnackBar)
+    private MatSnackBar: MatSnackBar, 
+    private HeaderService: HeaderService)
+
     {
+      HeaderService.headerData = {
+        title: 'Cadastro de Produtos',
+        icon: 'create',
+        routeUrl: '/products/create'
+      }
+
 
   }
   ngOnInit(): void {

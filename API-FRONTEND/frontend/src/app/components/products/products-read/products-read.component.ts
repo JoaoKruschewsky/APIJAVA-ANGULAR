@@ -1,3 +1,4 @@
+import { HeaderService } from './../../template/header/header.service';
 import { DataSource } from '@angular/cdk/collections';
 import { ProductService } from './../../product/product.service';
 import { Product } from './../product.model';
@@ -15,13 +16,18 @@ export class ProductsReadComponent implements AfterViewInit{
 
   products: Product[] = []
  
-  displayedColumns = ['id', 'nameproduct','amount', 'value', 'action'];
+  displayedColumns = [ 'nameproduct','amount', 'value', 'action'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Product>;
-    constructor(private ProductService:ProductService) {
-
+    constructor(private ProductService:ProductService,
+      private  HeaderService:HeaderService) {
+        HeaderService.headerData = {
+          title: 'Produtos',
+          icon: 'list',
+          routeUrl: '/products/read'
+        }
     }
  
     ngAfterViewInit(): void {

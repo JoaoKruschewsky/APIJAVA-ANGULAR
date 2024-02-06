@@ -2,6 +2,7 @@ package br.com.projeto1.api.Control;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,7 @@ public class Control {
     @Autowired
     private Repositorio acao;
 
+    
     @Autowired
     private Servico servico;
 
@@ -57,31 +59,21 @@ public class Control {
         return servico.selectbyid(id);
     }
 
-    // Selecionar pelo name
-    @GetMapping("selecionarpelonome/{name}")
-    public ResponseEntity<?> selectbyname(@PathVariable String name) {
-        return servico.selectbyname(name);
-    }
-    // Selecionar pelo name e update por ele
+   
 
     @Transactional
     @PutMapping("atualizar/{id}")
     public void  updatebyname(@PathVariable int id, @RequestBody Loja produto) {
          acao.updateAnyPartOfProduct(produto, id);
 
-         reorderIds();
+        
          
 
     }
 
     // Deletarbyname
 
-    @Transactional
-    @DeleteMapping("deletarpelonome/{name}")
-    public ResponseEntity<?> deletebyname(@PathVariable String name) {
-        return servico.delete(name);
-    }
-
+    
     // Deletarbycodigo
     @Transactional
     @DeleteMapping("deletarpeloid/{id}")
@@ -90,17 +82,6 @@ public class Control {
     }
 
     // Reoganizar os id 
-    @Transactional
-    public void reorderIds() {
-        // Recupera todos os registros da tabela e ordena-os por ID
-        List<Loja> lojas = acao.findAllOrderedById();
 
-        // Atualiza os IDs para formar uma sequência contínua
-        for (int i = 0; i < lojas.size(); i++) {
-            Loja loja = lojas.get(i);
-            loja.setId(i + 1);
-            entityManager.merge(loja); // Mescla o objeto com o contexto de persistência
-        }
-    }
 
 }

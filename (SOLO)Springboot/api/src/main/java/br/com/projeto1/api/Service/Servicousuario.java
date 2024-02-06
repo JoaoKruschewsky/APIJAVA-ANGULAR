@@ -3,6 +3,7 @@ package br.com.projeto1.api.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.projeto1.api.Mensagem.Mensagem;
@@ -16,7 +17,14 @@ public class Servicousuario {
     private Repositoriouser acao;
     @Autowired
     private Mensagem mensagem;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
+    public Usuario salvarUsuario(Usuario usuario) {
+        String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+        usuario.setSenha(senhaCriptografada);
+        return acao.save(usuario);
+    }
 
     
 
