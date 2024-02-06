@@ -23,6 +23,7 @@ public class Usuario {
     @NotEmpty
     private String senha;
 
+
     public long getId() {
         return id;
     }
