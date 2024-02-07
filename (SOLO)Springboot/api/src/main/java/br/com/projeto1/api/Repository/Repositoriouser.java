@@ -13,6 +13,9 @@ public interface Repositoriouser extends CrudRepository<Usuario, Long> {
 
     Usuario findByEmail(String email);
 
+    Usuario findByEmailAndSenha(String email, String senha);
+
+
     List<Usuario> findAll();
 
     Usuario countBySenha(String senha);

@@ -7,12 +7,13 @@ import { ProductsReadComponent } from './components/products/products-read/produ
 import { ProductsRead2Component } from './components/products/products-read2/products-read2.component';
 import { ProductsUptadeComponent } from './components/products/products-uptade/products-uptade.component';
 import { ProductsDeleteComponent } from './components/products/products-delete/products-delete.component';
+import { UserComponent } from './components/user/user/user.component';
 
 const routes: Routes = [
-  {
-  path: "",
-  component: HomeComponent
-},
+  { path: '', component: UserComponent }, // Rota para o UserComponent
+  { path: 'home', component: HomeComponent }, // Rota para o HomeComponent (raiz)
+  { path: '**', redirectTo: '' },// Rota padrão caso o usuário acesse uma rota inválida
+
 {
   path:"products/create",
   component: ProductsCreateComponent

@@ -3,7 +3,6 @@ package br.com.projeto1.api.Control;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,13 +26,12 @@ public class Controluser {
 
     @Autowired
     private Servicousuario servico;
-     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    
 
 
     @PostMapping("/cadastrarusuario")
     public Usuario cadastrar(@RequestBody Usuario obj) {
-        return servico.salvarUsuario(obj);
+        return acao.save(obj);
 
     }
 
@@ -43,4 +41,10 @@ public class Controluser {
     public List<Usuario> Listar() {
         return acao.findAll();
     }
+
+    @PostMapping("/getuser")
+    public ResponseEntity<?> getUserbyPaassword(@RequestBody Usuario user) {
+        return servico.getuser(user);
+    }
+    
 }
