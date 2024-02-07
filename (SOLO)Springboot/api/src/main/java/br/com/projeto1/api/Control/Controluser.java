@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.projeto1.api.Models.Useremail;
 import br.com.projeto1.api.Models.Usuario;
 import br.com.projeto1.api.Repository.Repositorio;
 import br.com.projeto1.api.Repository.Repositoriouser;
@@ -38,14 +37,7 @@ public class Controluser {
 
     }
 
-    @GetMapping("/procurarpeloemail")
-    public Usuario procurarpeloemail(@RequestBody Useremail emailuser) {
-     
-      String email = emailuser.getUseremail();
-
-      return acao.findByEmail(email);
-
-    }
+    
 
     @GetMapping("/Listar")
     public List<Usuario> Listar() {
