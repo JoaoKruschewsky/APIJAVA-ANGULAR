@@ -29,7 +29,7 @@ export class UserComponent {
   Clickbuttonlogin():void{
     this.userService.checkUser(this.user).subscribe( () => {
       this.userService.showMessage("Login Aceito!")
-      this.Route.navigate(["home"])
+      this.Route.navigate(["layout"])
       
     })
   }
