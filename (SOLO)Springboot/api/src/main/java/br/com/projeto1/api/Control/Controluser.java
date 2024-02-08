@@ -30,8 +30,8 @@ public class Controluser {
 
 
     @PostMapping("/cadastrarusuario")
-    public Usuario cadastrar(@RequestBody Usuario obj) {
-        return acao.save(obj);
+    public ResponseEntity<?> cadastrar(@RequestBody Usuario obj) {
+        return servico.cadastro(obj);
 
     }
 

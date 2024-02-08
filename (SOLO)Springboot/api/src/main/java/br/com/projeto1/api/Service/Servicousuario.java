@@ -23,16 +23,28 @@ public class Servicousuario {
     public ResponseEntity<?> getuser(Usuario user) {
         // Verificar se o usuário já existe no banco de dados com o mesmo email e senha
         Usuario existingUser = acao.findByEmailAndSenha(user.getEmail(), user.getSenha());
-        if (existingUser != null) {
+        if (existingUser == null) {
             // Usuário com o mesmo email e senha já existe, retornar um código de status de erro
-            mensagem.setMensagem("Já existe usuario com email e senha");
+            mensagem.setMensagem("Usuario nao cadastrado, pedi pra fazer cadastro.");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
         }      
     
         // Verificar se o salvamento foi bem-sucedido
       else {
-            mensagem.setMensagem("Usuario nao cadastrado, pedi pra fazer login.");
-            return new ResponseEntity<>(mensagem, HttpStatus.ACCEPTED);
+            mensagem.setMensagem("Usuario cadastrado!");
+            return new ResponseEntity<>(mensagem, HttpStatus.OK);
+        }
+    }
+
+    public ResponseEntity<?> cadastro(Usuario user) {
+        Usuario existingUser = acao.findByEmailAndSenha(user.getEmail(), user.getSenha());
+    
+        if (existingUser != null) {
+            mensagem.setMensagem("Já existe um usuário com esse Email e Senha");
+            return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
+        } else {
+            mensagem.setMensagem("Usuário Cadastrado");
+            return new ResponseEntity<>(acao.save(user), HttpStatus.OK);
         }
     }
     
