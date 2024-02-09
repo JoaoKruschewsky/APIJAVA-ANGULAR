@@ -1,6 +1,8 @@
 .header {
     display: flex;
     align-items: center;
+    z-index: 1000; /* Ou qualquer valor que seja maior do que o z-index do mat-card */
+
     
 
 }

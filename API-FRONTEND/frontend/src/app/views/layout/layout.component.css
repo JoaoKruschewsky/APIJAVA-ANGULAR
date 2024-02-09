@@ -1,0 +1,5 @@
+router-outlet {
+    flex: 1; /* Ocupa todo o espaço restante */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    background-color: black;
+  }

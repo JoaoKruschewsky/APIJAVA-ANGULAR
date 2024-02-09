@@ -10,3 +10,10 @@ form {
 button {
     margin:10px;
 }
+
+mat-card {
+    flex: 1; /* Ocupa todo o espaço restante */
+    overflow-y: auto; 
+   
+   
+}
