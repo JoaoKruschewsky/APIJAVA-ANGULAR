@@ -10,13 +10,3 @@
 .sidenav i {
     padding-right: 10px;
 }
-.content {
-    
-    background-color: white;
-     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100%; /* Preenche a altura do app-layout */
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-   
-}

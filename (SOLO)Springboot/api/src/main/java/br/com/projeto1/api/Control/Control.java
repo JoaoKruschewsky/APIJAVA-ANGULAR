@@ -40,8 +40,8 @@ public class Control {
 
     // Cadastrar
     @PostMapping("/cadastrar")
-    public Loja cadastro(@RequestBody Loja obj) {
-        return acao.save(obj);
+    public ResponseEntity<?> cadastro(@RequestBody Loja obj) {
+        return servico.saveProduct(obj);
     }
 
     // Mostrar todos

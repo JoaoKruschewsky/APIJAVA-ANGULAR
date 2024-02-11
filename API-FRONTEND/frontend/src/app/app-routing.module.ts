@@ -11,13 +11,12 @@ import { UserComponent } from './components/user/user/user.component';
 import { LayoutComponent } from './views/layout/layout.component';
 
 const routes: Routes = [
-  { path: '', component: UserComponent }, 
+  { path: 'login', component: UserComponent }, 
 
   {
     path: 'layout',
-    component:LayoutComponent,
-  },
-      { path: 'home', component: HomeComponent }, // Rota para o HomeComponent (raiz)
+    component:LayoutComponent},
+{ path: 'home', component: HomeComponent }, // Rota para o HomeComponent (raiz)
 
       {
         path:"products/create",

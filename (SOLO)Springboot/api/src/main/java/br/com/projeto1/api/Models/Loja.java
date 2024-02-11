@@ -1,5 +1,7 @@
 package br.com.projeto1.api.Models;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,8 +17,8 @@ public class Loja {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nameproduct;
-    private String amount;
-    private String value;
+    private int amount;
+    private BigDecimal value;
 
     public int getId() {
         return id;
@@ -34,19 +36,19 @@ public class Loja {
         this.nameproduct = nameproduct;
     }
 
-    public String getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public String getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 }

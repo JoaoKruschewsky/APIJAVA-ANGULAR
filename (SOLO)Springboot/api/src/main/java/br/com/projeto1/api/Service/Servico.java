@@ -47,6 +47,22 @@ public class Servico {
         }
     }
 
+    public ResponseEntity<?> saveProduct(Loja product){ 
+        Loja productexisting = acao.findByNameproduct(product.getNameproduct());
+        
+        if (product.getNameproduct() == "" || product.getAmount() == 0 || product.getValue() == null ) {
+            mensagem.setMensagem("Insira todos os elementos na Entrada");
+            return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
+        } else  if (productexisting == null) {
+                mensagem.setMensagem("Nao existe nenhum produto com esse Nome!");
+                return new ResponseEntity<>(acao.save(product), HttpStatus.OK);
+
+        } else {
+            mensagem.setMensagem("Já existe um produto com esse Nome!");
+            return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
+        }
+    }
+
     // deletar pelo id
     public ResponseEntity<?> deletebyid(int id) {
 

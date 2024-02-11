@@ -12,8 +12,7 @@ button {
 }
 
 mat-card {
-    flex: 1; /* Ocupa todo o espaço restante */
-    overflow-y: auto; 
-   
-   
+    padding: 20px;
+    border: outset;
+    margin-top: 10px;
 }

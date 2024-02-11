@@ -1,23 +1,21 @@
-<app-layout>
-</app-layout>
 
-<mat-card >
 
+<mat-card class="mat-elevation-z3" >
 
     <mat-card-title> Novo Produto</mat-card-title>
     <form action="">
         <mat-form-field>
-            <input matInput placeholder="Nome do Produto" 
-            [(ngModel)]="product.nameproduct" name="nameproduct">
+            <input id="nameproduct" matInput placeholder="Nome do Produto" 
+            [(ngModel)]="product.nameproduct" name="nameproduct" type="text">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Quantidade" 
-            [(ngModel)]="product.amount" name="amount">
+            <input id="amount" matInput placeholder="Quantidade" 
+            [(ngModel)]="product.amount" name="amount" type="number">
         </mat-form-field>
         <mat-card-title> Valor</mat-card-title>
         <mat-form-field>
-            <input matInput placeholder="Valor" 
-            [(ngModel)]="product.value"  name="value">
+            <input id="value" matInput placeholder="Valor" 
+            [(ngModel)]="product.value || currency: BRL"  name="value" type="tex">
         </mat-form-field>
             
     </form>
