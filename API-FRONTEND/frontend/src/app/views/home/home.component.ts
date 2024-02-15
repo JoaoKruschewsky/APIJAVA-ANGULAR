@@ -1,4 +1,4 @@
-import { Head } from 'rxjs';
+import { HeaderData } from './../../components/template/header/header-datamodel';
 import { HeaderService } from './../../components/template/header/header.service';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';

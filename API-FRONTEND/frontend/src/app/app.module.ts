@@ -16,7 +16,7 @@ import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
 import { RedDirective } from './directives/red.directive';
 import { ForDirective } from './directives/for.directive';
-import { ProductsCreateComponent } from './components/products/products-create/products-create.component';
+import { ProductsCreateComponent } from './components/products/products-create/ProductsCreateComponent';
 import { MatButtonModule } from '@angular/material/button';
 
 import { FormsModule } from '@angular/forms';

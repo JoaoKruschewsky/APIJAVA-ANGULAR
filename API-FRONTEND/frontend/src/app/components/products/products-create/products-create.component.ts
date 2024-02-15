@@ -5,8 +5,6 @@ import { ProductService } from './../../product/product.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../product.model';
-import { Head } from 'rxjs';
-import { HtmlParser } from '@angular/compiler';
 @Component({
   selector: 'app-products-create',
   templateUrl: './products-create.component.html',
@@ -15,7 +13,7 @@ import { HtmlParser } from '@angular/compiler';
 export class ProductsCreateComponent implements OnInit {
 
   product: Product = {
-    nameproduct:'',
+    nameproduct:"",
     amount: 0,
     value: 0
   }

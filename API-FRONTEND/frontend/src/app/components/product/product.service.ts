@@ -37,6 +37,8 @@ export class ProductService {
       catchError(e => this.erroHandler(e))
       )
   }
+
+  
   erroHandler(e: any): Observable<any> {
     this.showMessage('Ocrreu um erro!', true);
     return EMPTY;
