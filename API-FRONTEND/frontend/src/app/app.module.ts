@@ -19,7 +19,6 @@ import { ForDirective } from './directives/for.directive';
 import { ProductsCreateComponent } from './components/products/products-create/products-create.component';
 import { MatButtonModule } from '@angular/material/button';
 
-import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule }from '@angular/material/input';
 
