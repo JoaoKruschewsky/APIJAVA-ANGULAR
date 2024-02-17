@@ -24,7 +24,6 @@ import { MatInputModule }from '@angular/material/input';
 
 import { HttpClientModule} from '@angular/common/http';
 import { ProductsReadComponent } from './components/products/products-read/products-read.component';
-import { ProductsRead2Component } from './components/products/products-read2/products-read2.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -33,8 +32,12 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { ProductsUptadeComponent } from './components/products/products-uptade/products-uptade.component';
 import { ProductsDeleteComponent } from './components/products/products-delete/products-delete.component';
-import { UserComponent } from './components/user/user/user.component';
+import { UserComponent } from './components/user/user.component';
 import { LayoutComponent } from './views/layout/layout.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SectorComponent } from './components/sector/sector.component';
+import { RegisterComponent } from './views/register/register.component';
 
 registerLocaleData(localePt)
 
@@ -49,11 +52,12 @@ registerLocaleData(localePt)
     ForDirective,
     ProductsCreateComponent,
     ProductsReadComponent,
-    ProductsRead2Component,
     ProductsUptadeComponent,
     ProductsDeleteComponent,
     UserComponent,
-    LayoutComponent
+    LayoutComponent,
+    SectorComponent,
+    RegisterComponent
   
 
   ],
@@ -72,7 +76,8 @@ registerLocaleData(localePt)
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    RouterModule
   ],
   providers: [{
     provide: LOCALE_ID,

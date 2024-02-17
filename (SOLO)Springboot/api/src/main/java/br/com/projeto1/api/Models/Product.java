@@ -2,29 +2,43 @@ package br.com.projeto1.api.Models;
 
 import java.math.BigDecimal;
 
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 
-@Table(name = "Listloja")
-public class Loja {
+@Table(name = "Product")
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String nameproduct;
     private int amount;
-    private BigDecimal value;
+    private BigDecimal price;
 
-    public int getId() {
+    @ManyToOne
+    private Sector sector;
+
+    public Sector getSector() {
+        return sector;
+    }
+
+    public void setSector(Sector sector) {
+        this.sector = sector;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,10 +59,10 @@ public class Loja {
     }
 
     public BigDecimal getValue() {
-        return value;
+        return price;
     }
 
     public void setValue(BigDecimal value) {
-        this.value = value;
+        this.price = value;
     }
 }

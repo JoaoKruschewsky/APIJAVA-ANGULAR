@@ -15,4 +15,5 @@ mat-card {
     padding: 20px;
     border: outset;
     margin-top: 10px;
+    width: 100% ;
 }

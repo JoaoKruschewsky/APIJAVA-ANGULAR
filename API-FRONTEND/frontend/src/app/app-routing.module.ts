@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from'./views/home/home.component';
 import { ProductsCreateComponent } from './components/products/products-create/products-create.component';
 import { ProductsReadComponent } from './components/products/products-read/products-read.component';
-import { ProductsRead2Component } from './components/products/products-read2/products-read2.component';
 import { ProductsUptadeComponent } from './components/products/products-uptade/products-uptade.component';
 import { ProductsDeleteComponent } from './components/products/products-delete/products-delete.component';
-import { UserComponent } from './components/user/user/user.component';
+import { UserComponent } from './components/user/user.component';
 import { LayoutComponent } from './views/layout/layout.component';
+import { RegisterComponent } from './views/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: UserComponent }, 
@@ -33,6 +33,10 @@ const routes: Routes = [
       {
         path: "products/delete/:id",
         component:ProductsDeleteComponent
+      },
+      {
+        path:"views/register",
+        component:RegisterComponent
       }
     
   

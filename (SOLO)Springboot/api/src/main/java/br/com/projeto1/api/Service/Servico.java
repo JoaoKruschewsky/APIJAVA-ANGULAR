@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.projeto1.api.Mensagem.Mensagem;
-import br.com.projeto1.api.Models.Loja;
+import br.com.projeto1.api.Models.Product;
 import br.com.projeto1.api.Repository.Repositorio;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -28,12 +28,12 @@ public class Servico {
     private Repositorio acao;
 
     // selecionar pelo Id
-    public ResponseEntity<?> selectbyid(int id) {
-        if (acao.findById(id) == null){
+  public ResponseEntity<?> selectbyid(Long id ) {
+        if (acao.countById(id) == null){
             mensagem.setMensagem("Nao existe produto oom esse id");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
         } else {
-            return new ResponseEntity<>(acao.findById(id), HttpStatus.OK);
+            return new ResponseEntity<>(acao.countById(id), HttpStatus.OK);
         }
     }
 
@@ -47,8 +47,8 @@ public class Servico {
         }
     }
 
-    public ResponseEntity<?> saveProduct(Loja product){ 
-        Loja productexisting = acao.findByNameproduct(product.getNameproduct());
+    public ResponseEntity<?> saveProduct(Product product){ 
+        Product productexisting = acao.findByNameproduct(product.getNameproduct());
         
         if (product.getNameproduct() == "" || product.getAmount() == 0 || product.getValue() == null ) {
             mensagem.setMensagem("Insira todos os elementos na Entrada");
@@ -64,13 +64,13 @@ public class Servico {
     }
 
     // deletar pelo id
-    public ResponseEntity<?> deletebyid(int id) {
+    public ResponseEntity<?> deletebyid(Long id) {
 
-        if (acao.findById(id) == null) {
+        if (acao.countById(id) == null) {
             mensagem.setMensagem("Nao existe produto oom esse id");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
         } else {
-            Loja obj = acao.findById(id);
+            Product obj = acao.countById(id);
             acao.delete(obj);
             mensagem.setMensagem("Produto deletado com sucesso");
             return new ResponseEntity<>(mensagem, HttpStatus.OK);
@@ -83,7 +83,7 @@ public class Servico {
             mensagem.setMensagem("Esse produto nao existe.");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
         } else {
-            Loja obj = acao.findByNameproduct(name);
+            Product obj = acao.findByNameproduct(name);
             acao.delete(obj);
             mensagem.setMensagem("Produto deletado com sucesso.");
             return new ResponseEntity<>(mensagem, HttpStatus.OK);

@@ -19,14 +19,14 @@ import javax.persistence.PersistenceContext;
 
 import java.util.*;
 
-import br.com.projeto1.api.Models.Loja;
+import br.com.projeto1.api.Models.Product;
 import br.com.projeto1.api.Repository.Repositorio;
 import br.com.projeto1.api.Service.Servico;
 import jakarta.transaction.Transactional;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/lojas") 
+@RequestMapping("/product") 
 public class Control {
     @PersistenceContext
     private EntityManager entityManager;
@@ -40,13 +40,13 @@ public class Control {
 
     // Cadastrar
     @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastro(@RequestBody Loja obj) {
+    public ResponseEntity<?> cadastro(@RequestBody Product obj) {
         return servico.saveProduct(obj);
     }
 
     // Mostrar todos
     @GetMapping("Listar")
-    public List<Loja> listartodos() {
+    public List<Product> listartodos() {
         return acao.findAll();
         
 
@@ -54,7 +54,7 @@ public class Control {
 
     // Selecionar pelo id
     @GetMapping("selecionarpeloid/{id}")
-    public ResponseEntity<?> selecionarpelocodigo(@PathVariable int id) {
+    public ResponseEntity<?> selecionarpelocodigo(@PathVariable Long id) {
         return servico.selectbyid(id);
     }
 
@@ -62,7 +62,7 @@ public class Control {
 
     @Transactional
     @PutMapping("atualizar/{id}")
-    public void  updatebyname(@PathVariable int id, @RequestBody Loja produto) {
+    public void  updatebyname(@PathVariable int id, @RequestBody Product produto) {
          acao.updateAnyPartOfProduct(produto, id);
 
         
@@ -76,7 +76,7 @@ public class Control {
     // Deletarbycodigo
     @Transactional
     @DeleteMapping("deletarpeloid/{id}")
-    public ResponseEntity<?> deletebyid(@PathVariable int id) {
+    public ResponseEntity<?> deletebyid(@PathVariable Long id) {
         return servico.deletebyid(id);
     }
 

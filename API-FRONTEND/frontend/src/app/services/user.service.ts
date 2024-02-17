@@ -2,7 +2,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Route } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../user.model';
+import { User } from '../models/user.model';
 import { Observable, catchError, tap, EMPTY, map } from 'rxjs';
 
 @Injectable({

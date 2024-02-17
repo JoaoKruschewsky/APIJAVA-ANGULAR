@@ -1,4 +1,4 @@
-import { Product } from './../products/product.model';
+import { Product } from '../models/product.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar'
@@ -16,11 +16,11 @@ export class ProductService {
   sort: MatSort | undefined;
   products: Product[] = []
 
-  baseUrl = "http://localhost:8080/lojas/cadastrar"
-  ListarUrl = "http://localhost:8080/lojas/Listar"
-  ListarId = "http://localhost:8080/lojas/selecionarpeloid"
-  UptadeId = "http://localhost:8080/lojas/atualizar"
-  DeletebyId = "http://localhost:8080/lojas/deletarpeloid"
+  baseUrl = "http://localhost:8080/product/cadastrar"
+  ListarUrl = "http://localhost:8080/product/Listar"
+  ListarId = "http://localhost:8080/product/selecionarpeloid"
+  UptadeId = "http://localhost:8080/product/atualizar"
+  DeletebyId = "http://localhost:8080/product/deletarpeloid"
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
   showMessage(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, 'X', {
@@ -94,7 +94,7 @@ export class ProductService {
         case 'id':
           return compare((a.id !== undefined ? +a.id : 0), (b.id !== undefined ? +b.id : 0), isAsc);
         case 'amount': return compare(a.amount, b.amount, isAsc);
-        case 'value': return compare(+a.value, +b.value, isAsc);
+        case 'value': return compare(+a.price, +b.price, isAsc);
         default: return 0;
       }
     });

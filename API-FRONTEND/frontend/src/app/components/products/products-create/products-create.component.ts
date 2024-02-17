@@ -1,10 +1,9 @@
 import { HeaderService } from './../../template/header/header.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ValidationService } from './../../product/validation.service';
-import { ProductService } from './../../product/product.service';
+import { ProductService } from '../../../services/product.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from '../product.model';
+import { Product } from '../../../models/product.model';
 @Component({
   selector: 'app-products-create',
   templateUrl: './products-create.component.html',
@@ -15,12 +14,11 @@ export class ProductsCreateComponent implements OnInit {
   product: Product = {
     nameproduct:"",
     amount: 0,
-    value: 0
+    price: 0
   }
 
 
   constructor(private productService: ProductService,
-    private ValidationService: ValidationService,
     private root: Router,
     private MatSnackBar: MatSnackBar, 
     private HeaderService: HeaderService)
@@ -66,7 +64,7 @@ export class ProductsCreateComponent implements OnInit {
           const formattedValue = valueNew.toFixed(3); // Formata com 3 casas decimais
          
           
-            this.product.value =  valueNew
+            this.product.price =  valueNew
             this.productService.Create(this.product).subscribe(() =>{
              this.productService.showMessage("Protudo criado com sucesso!")
              this.root.navigate(["/products"])

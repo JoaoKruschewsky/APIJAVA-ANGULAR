@@ -7,27 +7,27 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import br.com.projeto1.api.Models.Loja;
+import br.com.projeto1.api.Models.Product;
 
 @Repository
-public interface Repositorio extends CrudRepository<Loja, Integer> {
+public interface Repositorio extends CrudRepository<Product, Long> {
 
-    Loja findById(int id);
-    @Query("SELECT l FROM Loja l ORDER BY l.id ASC")
-    List<Loja> findAllOrderedById();
+    Product countById(Long id);
+    @Query("SELECT l FROM Product l ORDER BY l.id ASC")
+    List<Product> findAllOrderedById();
 
-    int countById(int id);
+    //int countById(Long id);
 
-    Loja findByNameproduct(String name);
+    Product findByNameproduct(String name);
 
-    List<Loja> findAll();
+    List<Product> findAll();
 
     @Modifying
-    @Query(value = "UPDATE Listloja SET " +
+    @Query(value = "UPDATE Product SET " +
             "amount = COALESCE(:#{#Listloja.amount}, amount), " +
             "value = COALESCE(:#{#Listloja.value}, value), " +
             "nameproduct = COALESCE(:#{#Listloja.nameproduct}, nameproduct) " +
             "WHERE id = :id", nativeQuery = true)
-    void updateAnyPartOfProduct(@Param("Listloja") Loja produto, @Param("id") Integer id);
+    void updateAnyPartOfProduct(@Param("Listloja") Product produto, @Param("id") Integer id);
 
 }

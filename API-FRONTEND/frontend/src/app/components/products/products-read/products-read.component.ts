@@ -1,7 +1,7 @@
 import { HeaderService } from './../../template/header/header.service';
 import { DataSource } from '@angular/cdk/collections';
-import { ProductService } from './../../product/product.service';
-import { Product } from './../product.model';
+import { ProductService } from '../../../services/product.service';
+import { Product } from '../../../models/product.model';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';

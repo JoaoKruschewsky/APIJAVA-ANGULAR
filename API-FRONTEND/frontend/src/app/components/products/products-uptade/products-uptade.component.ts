@@ -1,6 +1,6 @@
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { ProductService } from '../../product/product.service';
-import { Product } from './../product.model';
+import { ProductService } from '../../../services/product.service';
+import { Product } from '../../../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { Action } from 'rxjs/internal/scheduler/Action';
 

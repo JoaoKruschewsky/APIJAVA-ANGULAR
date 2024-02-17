@@ -1,0 +1,31 @@
+<div class="container">
+
+
+<div class="content ">
+<h1>Bem-vindo ao nosso sistema de cadastro!
+
+</h1>
+
+ 
+    <span class="title">Você deseja cadastrar um novo setor ou um novo produto? 
+
+        Por favor, escolha uma das opções abaixo:</span>
+        
+        <ol>
+            <li>     Cadastrar Novo Setor: Se você deseja adicionar uma nova categoria ou setor para organizar seus produtos, selecione esta opção.   </li>
+            <button (click)="clickSector()">
+                <span>Setor</span>
+              </button>         
+                <li>Cadastrar Novo Produto: Se você deseja adicionar um novo produto ao nosso sistema, escolha esta opção para iniciar o processo de cadastro.</li>
+                <button (click)="clickProduct()">
+                    <span>Produto</span>
+                  </button>        </ol>
+        
+       <p> Obrigado por utilizar nosso sistema e por contribuir para a organização e atualização dos nossos dados!</p></div>
+
+        <div class="register">
+            <app-products-create *ngIf="create" class="create"></app-products-create>
+            <app-sector *ngIf="sector"> </app-sector>
+        </div>
+   
+</div>
