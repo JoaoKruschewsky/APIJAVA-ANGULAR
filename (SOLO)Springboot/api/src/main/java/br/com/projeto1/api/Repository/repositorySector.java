@@ -4,6 +4,8 @@ import org.springframework.stereotype.Repository;
 
 import br.com.projeto1.api.Models.Sector;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,6 +16,11 @@ import org.springframework.data.repository.CrudRepository;
 public interface  repositorySector extends CrudRepository<Sector, Long> {
 
 
-    Sector countBySector ( Sector sector);
+    Sector countByName ( String name );
+
+    Sector findByName( String name);
+
+     List<Sector> findAll();
+
     
 }

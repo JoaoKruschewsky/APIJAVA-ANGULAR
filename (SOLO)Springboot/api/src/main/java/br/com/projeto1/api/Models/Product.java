@@ -58,11 +58,11 @@ public class Product {
         this.amount = amount;
     }
 
-    public BigDecimal getValue() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setValue(BigDecimal value) {
-        this.price = value;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import br.com.projeto1.api.Mensagem.Mensagem;
 import br.com.projeto1.api.Models.Product;
+import br.com.projeto1.api.Models.Sector;
 import br.com.projeto1.api.Repository.Repositorio;
+import br.com.projeto1.api.Repository.repositorySector;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
@@ -26,6 +28,9 @@ public class Servico {
 
     @Autowired
     private Repositorio acao;
+
+    @Autowired
+    private repositorySector actionSector;
 
     // selecionar pelo Id
   public ResponseEntity<?> selectbyid(Long id ) {
@@ -49,12 +54,13 @@ public class Servico {
 
     public ResponseEntity<?> saveProduct(Product product){ 
         Product productexisting = acao.findByNameproduct(product.getNameproduct());
+        Sector verifySector = product.getSector();
         
-        if (product.getNameproduct() == "" || product.getAmount() == 0 || product.getValue() == null ) {
+        if (product.getNameproduct() == "" || product.getAmount() == 0 || product.getPrice() == null ) {
             mensagem.setMensagem("Insira todos os elementos na Entrada");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
-        } else  if (productexisting == null) {
-                mensagem.setMensagem("Nao existe nenhum produto com esse Nome!");
+        } else  if (productexisting == null && actionSector.findByName(verifySector.getName())!= null) {
+                mensagem.setMensagem("Nao existe nenhum produto com esse Nome! e o Setor do Produto está cadastrado!");
                 return new ResponseEntity<>(acao.save(product), HttpStatus.OK);
 
         } else {

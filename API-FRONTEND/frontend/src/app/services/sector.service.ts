@@ -12,6 +12,7 @@ export class SectorService  {
   constructor(private http:HttpClient, private snackbar:MatSnackBar) { }
 
   urlSave = "http://localhost:8080/sector/save"
+  urlListSector = "http://localhost:8080/sector/List"
 
 
   showMessage(msg: string, isError: boolean = false): void {
@@ -30,6 +31,9 @@ export class SectorService  {
     )
   }
 
+  listSector(): Observable<Sector[]> {
+    return this.http.get<Sector[]>(this.urlListSector);
+  }
 
   erroHandler(e: any): Observable<any> {
     this.showMessage('Já existe setor com esse nome!', true);
