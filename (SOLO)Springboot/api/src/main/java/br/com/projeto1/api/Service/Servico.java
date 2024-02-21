@@ -54,12 +54,13 @@ public class Servico {
 
     public ResponseEntity<?> saveProduct(Product product){ 
         Product productexisting = acao.findByNameproduct(product.getNameproduct());
-        Sector verifySector = product.getSector();
+    
+     
         
         if (product.getNameproduct() == "" || product.getAmount() == 0 || product.getPrice() == null ) {
             mensagem.setMensagem("Insira todos os elementos na Entrada");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
-        } else  if (productexisting == null && actionSector.findByName(verifySector.getName())!= null) {
+        } else  if (productexisting == null) {
                 mensagem.setMensagem("Nao existe nenhum produto com esse Nome! e o Setor do Produto está cadastrado!");
                 return new ResponseEntity<>(acao.save(product), HttpStatus.OK);
 

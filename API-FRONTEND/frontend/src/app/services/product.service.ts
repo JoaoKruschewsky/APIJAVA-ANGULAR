@@ -16,6 +16,7 @@ export class ProductService {
   sort: MatSort | undefined;
   products: Product[] = []
 
+
   baseUrl = "http://localhost:8080/product/cadastrar"
   ListarUrl = "http://localhost:8080/product/Listar"
   ListarId = "http://localhost:8080/product/selecionarpeloid"
@@ -33,7 +34,6 @@ export class ProductService {
 
   Create(product: Product): Observable<Product> {
     return this.http.post<Product>(this.baseUrl, product).pipe(
-      map(obj => obj),
       catchError(e => this.erroHandler(e))
       )
   }

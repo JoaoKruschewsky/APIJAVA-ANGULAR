@@ -17,8 +17,14 @@
             <input id="value" matInput placeholder="Valor" 
             [(ngModel)]="product.price "  name="value" type="text">
         </mat-form-field>
+
+        <select name="sector" id="sector" (change)="onSelectChange($event)">
+            <option value="">Escolha o setor</option>
+            <option *ngFor="let sector of sectors" [value]="sector.id" >{{ sector.name }}</option>
+          </select>
             
     </form>
+   
     <div class="container-button">
     <button  mat-raised-button (click)="CreateProduct()" color="primary">
         Salvar

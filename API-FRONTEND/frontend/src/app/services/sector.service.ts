@@ -13,7 +13,9 @@ export class SectorService  {
 
   urlSave = "http://localhost:8080/sector/save"
   urlListSector = "http://localhost:8080/sector/List"
+  urlDeletSector = "http://localhost:8080/sector/delete"
 
+ 
 
   showMessage(msg: string, isError: boolean = false): void {
     this.snackbar.open(msg, 'X', {
@@ -29,6 +31,12 @@ export class SectorService  {
     return this.http.post<Sector>(this.urlSave, sector).pipe(
       catchError(e => this.erroHandler(e))
     )
+  }
+
+  deletSector(sector:Sector): Observable<Sector> {
+    const url = `${this.urlDeletSector}/${sector.id}`
+
+    return this.http.delete<Sector>(url)
   }
 
   listSector(): Observable<Sector[]> {

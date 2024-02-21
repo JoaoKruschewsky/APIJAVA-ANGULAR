@@ -3,4 +3,8 @@ export interface Product {
     nameproduct: string
     amount: number
     price: number
+    sector: {
+        id?:number
+        name?: string
+    }
 }

@@ -20,7 +20,10 @@ public interface  repositorySector extends CrudRepository<Sector, Long> {
 
     Sector findByName( String name);
 
+    Sector findById( long id);
+
      List<Sector> findAll();
 
+     Sector deleteById(long id);
     
 }

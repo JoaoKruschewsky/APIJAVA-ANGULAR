@@ -1,0 +1,28 @@
+<div class="card" *ngIf="card">
+    <a  (click)="closeCard()" > 
+        <i class="material-icons" >
+            close
+        </i>
+    </a>
+    <div class="header">
+      <span class="icon">
+        <i class="material-icons">
+            delete
+        </i>
+      </span>
+        <h1>Tem certeza que deseja Deletar?</h1>
+    </div>
+  
+    <p class="message">
+        Voce perderá todos os produtos salvos e 
+        terá que adiciona-los novamente.
+    </p>
+  
+    <div class="actions">
+      <a class="read" (click)="deletSector()">
+       Confirmar
+      </a>
+  
+    </div>
+  </div>
+  

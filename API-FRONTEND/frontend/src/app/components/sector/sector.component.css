@@ -6,4 +6,13 @@ p {
     width: 100%;
     
   }
- 
+  .delete > i {
+    color: #e35e6b;
+  }
+  app-sector-delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 10px;
+  }
+  

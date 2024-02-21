@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -24,6 +25,7 @@ public class Product {
     private BigDecimal price;
 
     @ManyToOne
+    @JoinColumn(name = "ID_SECTOR")
     private Sector sector;
 
     public Sector getSector() {

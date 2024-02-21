@@ -38,6 +38,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SectorComponent } from './components/sector/sector.component';
 import { RegisterComponent } from './views/register/register.component';
+import { SectorDeleteComponent } from './components/sector/sector-delete/sector-delete.component';
 
 registerLocaleData(localePt)
 
@@ -57,7 +58,8 @@ registerLocaleData(localePt)
     UserComponent,
     LayoutComponent,
     SectorComponent,
-    RegisterComponent
+    RegisterComponent,
+    SectorDeleteComponent
   
 
   ],

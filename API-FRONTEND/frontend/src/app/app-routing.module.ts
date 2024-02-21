@@ -9,6 +9,7 @@ import { ProductsDeleteComponent } from './components/products/products-delete/p
 import { UserComponent } from './components/user/user.component';
 import { LayoutComponent } from './views/layout/layout.component';
 import { RegisterComponent } from './views/register/register.component';
+import { SectorDeleteComponent } from './components/sector/sector-delete/sector-delete.component';
 
 const routes: Routes = [
   { path: 'login', component: UserComponent }, 
@@ -37,8 +38,11 @@ const routes: Routes = [
       {
         path:"views/register",
         component:RegisterComponent
+      },
+      {
+      path:"sector/delete/:id",
+      component:SectorDeleteComponent
       }
-    
   
   // Rota para o UserComponent
 
