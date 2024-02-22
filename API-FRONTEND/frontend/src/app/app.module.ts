@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/template/header/header.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -18,9 +20,12 @@ import { RedDirective } from './directives/red.directive';
 import { ForDirective } from './directives/for.directive';
 import { ProductsCreateComponent } from './components/products/products-create/products-create.component';
 import { MatButtonModule } from '@angular/material/button';
+import { CalendarModule } from 'primeng/calendar';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule }from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { HttpClientModule} from '@angular/common/http';
 import { ProductsReadComponent } from './components/products/products-read/products-read.component';
@@ -79,7 +84,12 @@ registerLocaleData(localePt)
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    RouterModule
+    RouterModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BsDatepickerModule.forRoot(),
+    CalendarModule
+
   ],
   providers: [{
     provide: LOCALE_ID,

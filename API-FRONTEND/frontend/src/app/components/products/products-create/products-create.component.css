@@ -1,3 +1,5 @@
+
+
 form {
     display: flex;
     flex-direction: column;
@@ -17,3 +19,17 @@ mat-card {
     margin-top: 10px;
     width: 100% ;
 }
+.p-inputtext-sm {
+    font-size: 12px; /* Define o tamanho da fonte */
+    padding: 0.25rem 0.5rem; /* Define o preenchimento */
+  
+  }
+  
+  .p-datepicker-sm{
+    font-size: 19px; 
+    height: 300px;
+ 
+  }
+  p-calendar {
+    margin-bottom: 10px;
+  }

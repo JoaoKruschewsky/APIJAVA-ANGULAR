@@ -20,7 +20,7 @@ export class ProductsReadComponent implements AfterViewInit{
   
   sector:Sector[] = []
  
-  displayedColumns = [ 'nameproduct','amount', 'value', 'sector','action'];
+  displayedColumns = [ 'nameproduct','amount', 'value', 'validity','sector','action'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

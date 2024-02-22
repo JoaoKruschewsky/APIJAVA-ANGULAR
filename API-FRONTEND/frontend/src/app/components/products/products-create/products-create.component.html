@@ -18,6 +18,10 @@
             [(ngModel)]="product.price "  name="value" type="text">
         </mat-form-field>
 
+        <p-calendar [(ngModel)]="product.validity" [showIcon]="true" inputStyleClass="p-inputtext-sm" appendTo="body" panelStyleClass="p-datepicker-sm"></p-calendar>
+
+        
+
         <select name="sector" id="sector" (change)="onSelectChange($event)">
             <option value="">Escolha o setor</option>
             <option *ngFor="let sector of sectors" [value]="sector.id" >{{ sector.name }}</option>

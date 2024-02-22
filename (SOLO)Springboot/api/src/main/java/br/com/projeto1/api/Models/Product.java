@@ -1,6 +1,9 @@
 package br.com.projeto1.api.Models;
 
 import java.math.BigDecimal;
+import java.sql.Date;
+
+import javax.xml.crypto.Data;
 
 import org.hibernate.annotations.ManyToAny;
 
@@ -22,6 +25,15 @@ public class Product {
     private Long id;
     private String nameproduct;
     private int amount;
+    private Date validity;
+    public Date getValidity() {
+        return validity;
+    }
+
+    public void setValidity(Date validity) {
+        this.validity = validity;
+    }
+
     private BigDecimal price;
 
     @ManyToOne

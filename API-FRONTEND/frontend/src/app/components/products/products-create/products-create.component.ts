@@ -18,6 +18,7 @@ export class ProductsCreateComponent implements OnInit {
     nameproduct:"",
     amount: 0,
     price: 0,
+    validity: new Date(),
     sector: {
       id:0
    

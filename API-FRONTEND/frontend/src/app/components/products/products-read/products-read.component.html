@@ -24,6 +24,10 @@
       <td mat-cell *matCellDef="let product"  >  {{product.sector.name}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="validity">
+      <th mat-header-cell *matHeaderCellDef >Validade</th>
+      <td mat-cell *matCellDef="let product"  >  {{product.validity | date: 'dd/MM/yy'}}</td>
+    </ng-container>
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Acoes</th>
